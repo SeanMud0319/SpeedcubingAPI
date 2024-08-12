@@ -11,6 +11,7 @@ import java.net.URL;
 public class SpeedcubingAPI {
     private final static String API_URL = "https://api.speedcubing.top/player?uuid=";
     private final String uuid;
+    private final String key;
     private boolean hasResponse = false;
     private General general;
     private MlgRush mlgRush;
@@ -18,13 +19,14 @@ public class SpeedcubingAPI {
     private KnockbackFFA knockbackFFA;
     private FastBuilder fastBuilder;
 
-    public SpeedcubingAPI(String uuid) {
+    public SpeedcubingAPI(String uuid, String key) {
         this.uuid = uuid;
+        this.key = key;
         fetchData();
     }
     private void fetchData() {
         try {
-            URL url = new URL(API_URL + uuid);
+            URL url = new URL(API_URL + uuid + "&key=" + key);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             int responseCode = connection.getResponseCode();
