@@ -5,7 +5,7 @@ This is an unofficial Speedcubing API, which means it will not be updated regula
 ## Code Example
 
 ```java
-SpeedcubingAPI api = new SpeedcubingAPI(uuid);
+SpeedcubingAPI api = new SpeedcubingAPI(uuid, key);
 if (!api.hasResponse()) return;
 General general = api.getGeneral();
 KnockbackFFA knockbackFFA = api.getKnockbackFFA();
